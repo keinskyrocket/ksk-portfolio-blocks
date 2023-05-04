@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name:       Ksk Portfolio Blocks
- * Description:       Example block scaffolded with Create Block tool.
+ * Plugin Name:       KSK Portfolio Blocks
+ * Description:       This is a custom block plugin for KSK Portfolio website.
  * Requires at least: 6.1
  * Requires PHP:      7.0
  * Version:           0.1.0
@@ -21,6 +21,7 @@
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
 function create_block_ksk_portfolio_blocks_block_init() {
-	register_block_type( __DIR__ . '/build' );
+	register_block_type( __DIR__ . '/build/wrapper' );
+	register_block_type( __DIR__ . '/build/cta' );
 }
 add_action( 'init', 'create_block_ksk_portfolio_blocks_block_init' );

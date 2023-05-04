@@ -1,16 +1,16 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
-	"name": "create-block/ksk-portfolio-blocks",
+	"name": "create-block/wrapper",
 	"version": "0.1.0",
-	"title": "Ksk Portfolio Blocks",
-	"category": "widgets",
-	"icon": "smiley",
-	"description": "Example block scaffolded with Create Block tool.",
+	"title": "KSK Wrapper",
+	"category": "design",
+	"icon": "layout",
+	"description": "Wrapper block",
 	"supports": {
 		"html": false
 	},
-	"textdomain": "ksk-portfolio-blocks",
+	"textdomain": "ksk-wrapper",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css"

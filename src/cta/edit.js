@@ -33,8 +33,8 @@ export default function Edit() {
 	return (
 		<p { ...useBlockProps() }>
 			{ __(
-				'Ksk Portfolio Blocks – hello from the editor!',
-				'ksk-portfolio-blocks'
+				'Ksk CTA Blocks <> hello from the editor!',
+				'ksk-cta'
 			) }
 		</p>
 	);
