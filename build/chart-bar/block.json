@@ -1,12 +1,12 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 2,
-  "name": "create-block/ksk-cta",
+  "name": "create-block/ksk-chart-bar",
   "version": "0.1.0",
-  "title": "KSK CTA",
+  "title": "KSK Chart - Bar",
   "category": "design",
-  "icon": "layout",
-  "description": "CTA block",
+  "icon": "chart-bar",
+  "description": "Chart - Bar block",
   "supports": {
     "html": true,
     "color": {},
@@ -19,8 +19,14 @@
       "full"
     ]
   },
-  "textdomain": "ksk-cta",
+  "textdomain": "ksk-chart-bar",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
-  "style": "file:./style-index.css"
+  "style": "file:./style-index.css",
+  "attributes": {
+    "chartValue": {
+      "type": "string",
+      "default": "20"
+    }
+  }
 }

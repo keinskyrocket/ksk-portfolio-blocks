@@ -23,5 +23,6 @@
 function create_block_ksk_portfolio_blocks_block_init() {
 	register_block_type( __DIR__ . '/build/wrapper' );
 	register_block_type( __DIR__ . '/build/cta' );
+	register_block_type( __DIR__ . '/build/chart-bar' );
 }
 add_action( 'init', 'create_block_ksk_portfolio_blocks_block_init' );
