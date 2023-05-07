@@ -1,12 +1,51 @@
+@import "../styles/main.scss";
+
 /**
  * The following styles get applied both on the front of your site
  * and in the editor.
  *
  * Replace them with your own styles or remove the file completely.
- */
+ */ 
 
 .wp-block-create-block-ksk-wrapper {
-	background-color: #21759b;
-	color: #fff;
-	padding: 2px;
+	&:not(.has-background) {
+		@include border;
+	}
+
+	&:last-child {
+		border: none;
+	}
+
+	p + .wp-block-heading {
+		margin-top: 2.5rem !important;
+	} 
+	
+	&:not(:first-child) {
+		margin-block-start: 0 !important;
+	}
+	
+	.inner {
+		margin: 0 auto;
+		margin-block-start: 0 !important;
+		
+		padding: 2rem 0.5rem;
+
+		@media (min-width: $screen-xsmall) {
+			padding: 3rem 1rem;
+		}
+	
+		@media (min-width: $screen-small) {
+			padding: 4rem 1rem;
+		}
+	
+		@media (min-width: $screen-medium) {
+			max-width: $max-width-m;
+			padding: 4rem 0;
+		}
+	
+		@media (min-width: $screen-large) {
+			max-width: $max-width-l;
+			padding: 4rem 0;
+		}
+	}
 }

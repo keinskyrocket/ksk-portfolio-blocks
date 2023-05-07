@@ -1,17 +1,32 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
-	"name": "create-block/wrapper",
+	"name": "create-block/ksk-wrapper",
 	"version": "0.1.0",
 	"title": "KSK Wrapper",
 	"category": "design",
 	"icon": "layout",
 	"description": "Wrapper block",
 	"supports": {
-		"html": false
+		"html": true,
+		"color": {}
 	},
 	"textdomain": "ksk-wrapper",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
-	"style": "file:./style-index.css"
+	"style": "file:./style-index.css",
+	"styles": [
+		{
+			"name": "primary",
+			"label": "Primary",
+			"isDefault": true
+		},
+		{
+			"name": "secondary",
+			"label": "Secondary"
+		}
+	],
+	"attributes": {
+
+	}
 }
