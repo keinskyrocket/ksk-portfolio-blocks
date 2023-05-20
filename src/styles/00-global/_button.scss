@@ -1,0 +1,7 @@
+@use "../00-global/palette" as *;
+
+.wp-block-button {
+  &__link {
+    color: $col-primary !important;
+  }
+}

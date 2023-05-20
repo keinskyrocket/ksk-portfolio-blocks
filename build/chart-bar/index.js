@@ -18,10 +18,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./editor.scss */ "./src/chart-bar/editor.scss");
-/* harmony import */ var _components_number_control__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/number-control */ "./src/components/number-control.js");
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editor.scss */ "./src/chart-bar/editor.scss");
 
 /**
  * Retrieves the translation of text.
@@ -38,14 +35,12 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 
-
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
  *
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
-
 
 
 /**
@@ -56,49 +51,13 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @return {WPElement} Element to render.
  */
-function Edit(_ref) {
-  let {
-    attributes,
-    setAttributes
-  } = _ref;
-  const BLOCK_CLASS = "wp-block-create-block-ksk-chart-bar";
-  const {
-    chartValue
-  } = attributes;
-  const chartBarStyles = {
-    chartValue
-  };
-  const projectName = "ksk-chart-bar";
-  const onChangeChartValue = value => {
-    setAttributes({
-      chartValue: value
-    });
-  };
-  const chartAnimation = {
-    animation: `progress 2s normal`
-  };
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("style", null, `
-						@keyframes progress {
-							0% {width: 0}
-							100% {width: ${chartValue}%}
-						}	
-					`), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_number_control__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Chart Value', projectName),
-    value: chartValue,
-    onChange: onChangeChartValue,
-    min: 0,
-    max: 100,
-    step: 10
-  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
-    style: chartBarStyles
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: BLOCK_CLASS + '__label'
-  }, "JavaScript"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: BLOCK_CLASS + '__container'
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: BLOCK_CLASS + '__fill',
-    style: chartAnimation
-  }, chartValue + '%'))));
+function Edit() {
+  const ALLOWED_BLOCKS = ['create-block/ksk-chart-bar-child'];
+  const TEMPLATE = [['create-block/ksk-chart-bar-child']];
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, {
+    allowedBlocks: ALLOWED_BLOCKS,
+    template: TEMPLATE
+  }));
 }
 
 /***/ }),
@@ -189,93 +148,9 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @return {WPElement} Element to render.
  */
-function save(_ref) {
-  let {
-    attributes
-  } = _ref;
-  const BLOCK_CLASS = "wp-block-create-block-ksk-chart-bar";
-  const {
-    chartValue
-  } = attributes;
-  const chartBarStyles = {
-    chartValue
-  };
-  const chartAnimation = {
-    animation: `progress 2s normal`
-  };
-  console.log("TESTY: ", chartValue);
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("style", null, `
-						@keyframes progress {
-							0% {width: 0}
-							100% {width: ${chartValue}%}
-						}	
-					`), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save({
-    style: chartBarStyles
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: BLOCK_CLASS + '__label'
-  }, "JavaScript"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: BLOCK_CLASS + '__container'
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: BLOCK_CLASS + '__fill',
-    style: chartAnimation
-  }, chartValue + '%'))));
+function save() {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks.Content, null));
 }
-
-/***/ }),
-
-/***/ "./src/components/number-control.js":
-/*!******************************************!*\
-  !*** ./src/components/number-control.js ***!
-  \******************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
-
-
-const NumberControl = props => {
-  const {
-    min,
-    max,
-    step,
-    value,
-    onChange,
-    label,
-    ...additionalProps
-  } = props;
-  const minlength = min.toString().length;
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.BaseControl, {
-    label: label
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
-    type: "number",
-    min: min,
-    max: max,
-    step: step,
-    value: value,
-    onChange: e => {
-      let val = e.target.value;
-      if (e.target.value.length >= minlength) {
-        val = val > max ? max : val;
-        val = val < min ? min : val;
-      }
-      onChange(val);
-    },
-    onBlur: e => {
-      let val = e.target.value;
-      if (e.target.value.length < minlength) {
-        val = min;
-      }
-      onChange(val);
-    },
-    style: {
-      marginLeft: '8px'
-    }
-  }));
-};
-/* harmony default export */ __webpack_exports__["default"] = (NumberControl);
 
 /***/ }),
 
@@ -323,16 +198,6 @@ module.exports = window["wp"]["blocks"];
 
 /***/ }),
 
-/***/ "@wordpress/components":
-/*!************************************!*\
-  !*** external ["wp","components"] ***!
-  \************************************/
-/***/ (function(module) {
-
-module.exports = window["wp"]["components"];
-
-/***/ }),
-
 /***/ "@wordpress/element":
 /*!*********************************!*\
   !*** external ["wp","element"] ***!
@@ -359,7 +224,7 @@ module.exports = window["wp"]["i18n"];
   \**********************************/
 /***/ (function(module) {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"create-block/ksk-chart-bar","version":"0.1.0","title":"KSK Chart - Bar","category":"design","icon":"chart-bar","description":"Chart - Bar block","supports":{"html":true,"color":{},"spacing":{"margin":true,"padding":true},"align":["wide","full"]},"textdomain":"ksk-chart-bar","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"chartValue":{"type":"string","default":"20"}}}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"create-block/ksk-chart-bar","version":"0.1.0","title":"KSK Chart - Bar","category":"ksk-custom-category","icon":"chart-bar","description":"Chart - Bar block","supports":{"html":true,"color":{},"spacing":{"margin":true,"padding":true},"align":["wide","full"]},"textdomain":"ksk-chart-bar","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

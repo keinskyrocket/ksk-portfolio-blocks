@@ -1,0 +1,82 @@
+@use "../styles/style.scss" as *;
+
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-create-block-ksk-hero-background {
+	display: grid;
+
+	& > * {
+		grid-column-start: 1;
+		grid-row-start: 1;
+	}
+
+	&:hover {
+		.wp-block-create-block-ksk-hero-background__top {
+			animation: jump 1.2s ease-in-out infinite;
+		}
+
+		.wp-block-create-block-ksk-hero-background__bottom {
+			animation: jump 1.2s ease-in-out infinite;
+		}
+	}
+
+	&__top,
+	&__bottom {
+		display: inline-grid;
+		animation: float 4s ease-in-out infinite;
+
+		img {
+			margin: 0 auto;
+			width: 10rem;
+
+			@media (min-width: $screen-small) {
+				width: 80%;
+			}
+		}
+
+		& > * {
+			grid-column-start: 1;
+			grid-row-start: 1;
+		}
+	}
+
+	&__top {
+		position: relative;
+		top: -0.5rem;
+		left: -0.5rem;
+	}
+	
+	&__bottom {
+		position: relative;
+		top: 0.5rem;
+		left: 0.5rem;
+		opacity: 0.5;
+	}
+}
+
+@keyframes jump {
+  0% { transform: translate(0, 0) scale(1.1, 0.9); }
+	50% { transform: translate(0, -2rem) scale(1, 1); }
+	55% { transform: translate(0, -2rem) rotate(15deg); }
+	60% { transform: translate(0, -2rem) rotate(-15deg); }
+	65% { transform: translate(0, -2rem) rotate(15deg); }
+	70% { transform: translate(0, -2rem) rotate(-15deg); }
+	100% { transform: translate(0, 0) scale(1.1, 0.9); }
+}
+
+@keyframes float {
+	0% {
+		transform: translatey(0px);
+	}
+	50% {
+		transform: translatey(0.5rem);
+	}
+	100% {
+		transform: translatey(0px);
+	}
+}

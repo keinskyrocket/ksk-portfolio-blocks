@@ -1,0 +1,83 @@
+@use "../styles/style.scss" as *;
+
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-create-block-ksk-hero-expertise {
+	display: grid;
+	justify-items: center;
+
+	& > * {
+		grid-column-start: 1;
+		grid-row-start: 1;
+	}
+
+	&__left,
+	&__center,
+	&__right {
+		display: inline-grid;
+
+		& > * {
+			grid-column-start: 1;
+			grid-row-start: 1;
+		}
+	}
+
+	&__left,
+	&__right {
+		width: 32%;
+		
+		img {
+			margin: 0 auto;
+			width: 100%;
+		}
+	}
+
+	&__center {
+		width: 52%;
+		position: relative;
+		animation: center-pop 4s ease-in-out infinite;
+		
+		img {
+			margin: 0 auto;
+			width: 100%;
+		}
+	}
+
+	&__left {
+		position: relative;
+		left: -31.5%;
+		animation: left-pop 4s ease-in-out infinite;
+	}
+
+	&__right {
+		position: relative;
+		left: 33.5%;
+		animation: right-pop 4s ease-in-out infinite;
+	}
+}
+
+@keyframes center-pop {
+	0% { transform: translate(0, 0) scale(1, 1); }
+	50% { transform: translate(0, 0) scale(1.2, 1.2); }
+	60% { transform: translate(0, 0) scale(1, 1); }
+	100% { transform: translate(0, 0) scale(1, 1); }
+}
+
+@keyframes left-pop {
+	0% { transform: translate(0, 0) scale(1, 1); }
+	50% { transform: translate(-4rem, 0) scale(0.8, 0.8); }
+	60% { transform: translate(0, 0) scale(1, 1); }
+	100% { transform: translate(0, 0) scale(1, 1); }
+}
+
+@keyframes right-pop {
+	0% { transform: translate(0, 0) scale(1, 1); }
+	50% { transform: translate(4rem, 0) scale(0.8, 0.8); }
+	60% { transform: translate(0, 0) scale(1, 1); }
+	100% { transform: translate(0, 0) scale(1, 1); }
+}

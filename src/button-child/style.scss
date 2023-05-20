@@ -1,0 +1,112 @@
+@use "../styles/style.scss" as *;
+@use "../styles/_mixins/border" as *;
+@use "../styles/_mixins/focus" as *;
+
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+$threshold: 2px;
+
+.wp-block-create-block-ksk-button-child {
+	margin: 1rem 0 0 !important;
+	
+	.ksk-button {
+		&__primary,
+		&__secondary {
+			border: $col-button-default solid $threshold;
+			color: $col-button-default;
+			font-weight: 600;
+			line-height: 1;
+			text-decoration: none;
+			padding: 1rem;
+			transition: 0.3s;
+			position: relative;
+	
+			@include border-radius-m;
+
+			&:after {
+				content: "";
+				display: block;
+				position: absolute;
+				top: 4px;
+				left: 4px;
+				z-index: -1;
+
+				width: 100%;
+				height: 100%;
+				transition: 0.3s;
+				@include border-radius-m;
+			}
+		}
+
+		&__primary {
+			&:focus-visible {
+				@include focus-visible-primary;
+				
+				&:after {
+					top: calc($threshold * -1);
+					left: calc($threshold * -1);
+					@include border-radius-s;
+				}
+			}
+	
+			&:after {
+				background-color: $col-primary;
+				border: $col-primary solid $threshold;
+			}
+	
+			&:hover {
+				color: $col-button-default !important;
+
+				&:after {
+					top: calc($threshold * -1);
+					left: calc($threshold * -1);
+				}
+			}
+		}
+
+		&__secondary {
+			&:focus-visible {
+				@include focus-visible-secondary;
+				
+				&:after {
+					top: calc($threshold * -1);
+					left: calc($threshold * -1);
+					@include border-radius-s;
+				}
+			}
+
+			&:after {
+				background-color: $white;
+				border: $white solid $threshold;
+			}
+	
+			&:hover {
+				color: $col-button-default !important;
+
+				&:after {
+					top: calc($threshold * -1);
+					left: calc($threshold * -1);
+				}
+			}
+		}
+
+		&__text-arrow {
+			&:after {
+				display: inline-block;
+				font: var(--fa-font-solid);
+				content: "\f061";
+				margin-left: 0.25em;
+				text-decoration: none;
+			}
+		}
+	}
+
+	.ksk-button__center {
+		margin: 0 auto !important;
+	}
+}
