@@ -4,12 +4,13 @@
   "name": "create-block/ksk-wrapper",
   "version": "0.1.0",
   "title": "KSK Wrapper",
-  "category": "design",
+  "category": "ksk-custom-category",
   "icon": "layout",
   "description": "Wrapper block",
   "supports": {
     "html": true,
-    "color": {}
+    "color": {},
+    "anchor": true
   },
   "textdomain": "ksk-wrapper",
   "editorScript": "file:./index.js",
@@ -26,5 +27,10 @@
       "label": "Secondary"
     }
   ],
-  "attributes": {}
+  "attributes": {
+    "screenWidth": {
+      "type": "string",
+      "default": ""
+    }
+  }
 }

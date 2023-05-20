@@ -1,5 +1,4 @@
-@import "../styles/main.scss";
-
+@use "../styles/style.scss" as *;
 /**
  * The following styles get applied both on the front of your site
  * and in the editor.
@@ -8,9 +7,12 @@
  */ 
 
 .wp-block-create-block-ksk-wrapper {
-	&:not(.has-background) {
-		@include border;
-	}
+	position: relative;
+	top: 0;
+	left: 0;
+	z-index: 0;
+
+	@include border-bottom;
 
 	&:last-child {
 		border: none;

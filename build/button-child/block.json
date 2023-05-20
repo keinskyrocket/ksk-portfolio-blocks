@@ -1,0 +1,55 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "create-block/ksk-button-child",
+  "version": "0.1.0",
+  "title": "KSK Button(Child)",
+  "category": "ksk-custom-category",
+  "icon": "button",
+  "description": "Button(Child) block",
+  "parent": [
+    "create-block/ksk-button"
+  ],
+  "supports": {
+    "html": true,
+    "color": {},
+    "spacing": {
+      "margin": true,
+      "padding": true
+    },
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "textdomain": "ksk-button-child",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "attributes": {
+    "buttonLabel": {
+      "type": "string",
+      "default": "Sample button"
+    },
+    "buttonStyle": {
+      "type": "string",
+      "default": "__primary"
+    },
+    "buttonLink": {
+      "type": "string",
+      "default": ""
+    },
+    "buttonWidth": {
+      "type": "integer",
+      "default": 13
+    },
+    "buttonAlignment": {
+      "type": "string",
+      "default": ""
+    },
+    "isBlank": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

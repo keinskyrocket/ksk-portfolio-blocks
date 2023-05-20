@@ -1,0 +1,80 @@
+@use "../styles/style.scss" as *;
+
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-create-block-ksk-card-child {
+	@include border-radius-m;
+	
+	background-color: $col-background;
+	box-shadow: 0.1rem 0.1rem 0.25rem $col-secondary-light;
+	padding: 3rem;
+
+	h6 {
+		color: $col-primary-dark;
+	}
+
+	li {
+		margin: 1rem 0;
+	}
+
+	a {
+		display: inline-block;
+		overflow: hidden;
+    @include border-radius-m;
+    @include animation-transition;
+
+		&:hover {
+      img {
+        transform: scale(1.5);
+      }
+    }
+	}
+
+	img {
+		@include border-radius-m;
+		transition: transform .5s ease;
+	}
+
+	&[data-card-type = "is-work-experience"] {
+		.ksk-icon-tag {
+			&:before {
+				font: var(--fa-font-solid);
+				content: "\f121";
+			}
+		}
+	}
+
+	&[data-card-type = "is-education"] {
+		.ksk-icon-tag {
+			color: $col-accent-green;
+
+			&:before {
+				font: var(--fa-font-solid);
+				content: "\f518";
+				background-color: $col-accent-green;
+			}
+		}
+	}
+
+	&[data-card-type = "is-interim"] {
+		.ksk-icon-tag {
+			color: $col-accent-pink;
+
+			&:before {
+				font: var(--fa-font-solid);
+				content: "\f7b6";
+				background-color: $col-accent-pink;
+			}
+		}
+	}
+	&[data-card-type = "is-no-category"] {
+		.ksk-icon-tag {
+			display: none;
+		}
+	}
+}

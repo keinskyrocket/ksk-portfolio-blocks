@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "create-block/ksk-hero-background",
+  "version": "0.1.0",
+  "title": "KSK Hero Background",
+  "category": "ksk-custom-category",
+  "icon": "layout",
+  "description": "Hero Background block",
+  "supports": {
+    "html": true,
+    "color": {},
+    "spacing": {
+      "margin": true,
+      "padding": true
+    },
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "textdomain": "ksk-hero-background",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

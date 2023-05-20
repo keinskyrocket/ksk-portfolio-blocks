@@ -1,0 +1,45 @@
+@use "../styles/style.scss" as *;
+
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-create-block-ksk-chart-bar-child {
+	display: flex;
+	flex-direction: column;
+
+	font-size: 1rem;
+	margin: 0.25rem 0;
+	padding: 2px;
+
+	&__label {
+		color: $col-copy;
+		font-weight: 600;
+		height: 100%;
+	}
+
+	&__container {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+
+		width: 100%;
+		background-color: $col-quiet;
+		border-radius: 0.25rem;
+		position: relative;
+		overflow: hidden;
+	}
+
+	&__fill {
+		background-color: $col-primary;
+		color: $white;
+		font-size: 0.75rem;
+		font-weight: 600;
+		padding: 0 0.5rem;
+		height: 100%;
+	}
+}

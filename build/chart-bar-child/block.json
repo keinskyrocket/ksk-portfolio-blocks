@@ -1,0 +1,39 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "create-block/ksk-chart-bar-child",
+  "version": "0.1.0",
+  "title": "KSK Chart - Bar(Child)",
+  "category": "ksk-custom-category",
+  "icon": "admin-generic",
+  "description": "Chart - Bar(Child) block",
+  "parent": [
+    "create-block/ksk-chart-bar"
+  ],
+  "supports": {
+    "html": true,
+    "color": {},
+    "spacing": {
+      "margin": true,
+      "padding": true
+    },
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "textdomain": "ksk-chart-bar-child",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "attributes": {
+    "chartLabel": {
+      "type": "string",
+      "default": "Skill"
+    },
+    "chartValue": {
+      "type": "string",
+      "default": "20"
+    }
+  }
+}

@@ -15,10 +15,15 @@ import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
  *
  * @return {WPElement} Element to render.
  */
-export default function save() {
+export default function save({ attributes }) {
+	const { screenWidth } = attributes;
+
 	return (
 		<section { ...useBlockProps.save() }>
-			<div className="inner">
+			<div
+				className="inner"
+				style={{ maxWidth: screenWidth }}
+			>
 				<InnerBlocks.Content />
 			</div>
 		</section>

@@ -11,7 +11,8 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
+import { useBlockProps, InspectorControls, InnerBlocks } from '@wordpress/block-editor';
+import { PanelBody, SelectControl } from '@wordpress/components';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -29,12 +30,56 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit() {
+export default function Edit({ attributes, setAttributes }) {
+	const PROJECTNAME = "ksk-wrapper";
+
+	const { screenWidth } = attributes;
+
+	const onChangeScreenWidth = (value) => {
+		setAttributes({ screenWidth: value });
+	};
+
 	return (
-		<section {...useBlockProps()}>
-			<div className="inner">
-				<InnerBlocks placeholder="-- Insert blocks --" />
-			</div>
-		</section>
+		<>
+			<InspectorControls>
+				<PanelBody>
+					<SelectControl
+						label={__('Width', PROJECTNAME)}
+						value={screenWidth}
+						onChange={onChangeScreenWidth}
+						options={[
+							{
+								label: "Default",
+								value: ""
+							},
+							{
+								label: "Max width - 640px",
+								value: "640px"
+							},
+							{
+								label: "Max width - 720px",
+								value: "720px"
+							},
+							{
+								label: "Max width - 1040px",
+								value: "1040px"
+							},
+							{
+								label: "Full width",
+								value: "100%"
+							}
+						]}
+					/>
+				</PanelBody>
+			</InspectorControls>
+			<section {...useBlockProps()}>
+				<div
+					className="inner"
+					style={{ maxWidth: screenWidth }}
+				>
+					<InnerBlocks placeholder="-- Insert blocks --" />
+				</div>
+			</section>
+		</>
 	);
 }

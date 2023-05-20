@@ -11,8 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps, InnerBlocks, InspectorControls, PanelColorSettings } from '@wordpress/block-editor';
-import { PanelBody, RangeControl, SelectControl } from '@wordpress/components';
+import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -21,7 +20,6 @@ import { PanelBody, RangeControl, SelectControl } from '@wordpress/components';
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import './editor.scss';
-import NumberControl from '../components/number-control';
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -31,57 +29,18 @@ import NumberControl from '../components/number-control';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit( { attributes, setAttributes } ) {
-	const BLOCK_CLASS = "wp-block-create-block-ksk-chart-bar"
-	const { chartValue } = attributes;
-	const chartBarStyles = { chartValue };
-
-	const projectName = "ksk-chart-bar";
-
-	const onChangeChartValue = ( value ) => {
-		setAttributes( { chartValue: value } );
-	};
-
-	const chartAnimation = {
-		animation: `progress 2s normal`
-	}
+export default function Edit() {
+	const ALLOWED_BLOCKS = [ 'create-block/ksk-chart-bar-child' ];
+	const TEMPLATE = [
+		[ 'create-block/ksk-chart-bar-child' ]
+	];
 
 	return (
-		<>
-			<style>
-				{
-					`
-						@keyframes progress {
-							0% {width: 0}
-							100% {width: ${chartValue}%}
-						}	
-					`
-				}
-			</style>
-			<InspectorControls>
-				<PanelBody>
-					<NumberControl
-						label={ __( 'Chart Value', projectName ) }
-						value={ chartValue }
-						onChange={ onChangeChartValue }
-						min={ 0 }
-						max={ 100 }
-						step={ 10 }
-					/>
-				</PanelBody>
-			</InspectorControls>
-
-			<div { ...useBlockProps( { style: chartBarStyles } ) }>
-				<div className={ BLOCK_CLASS + '__label' }>JavaScript</div>
-				<div className={ BLOCK_CLASS + '__container' }>
-					<div
-						className={ BLOCK_CLASS + '__fill' }
-						style={ chartAnimation }
-					>
-						{ chartValue + '%' }
-					</div>
-				</div>
-			</div>
-		</>
+		<div { ...useBlockProps() }>
+			<InnerBlocks
+				allowedBlocks = { ALLOWED_BLOCKS }
+				template = { TEMPLATE }
+			/>
+		</div>
 	);
 }

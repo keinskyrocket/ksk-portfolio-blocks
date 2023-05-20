@@ -1,0 +1,29 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "create-block/ksk-button",
+	"version": "0.1.0",
+	"title": "KSK Button",
+	"category": "ksk-custom-category",
+	"icon": "button",
+	"description": "Button block",
+	"supports": {
+		"html": true,
+		"color": {},
+		"spacing": {
+			"margin": true,
+			"padding": true
+		},
+		"align": [ "wide", "full" ]
+	},
+	"textdomain": "ksk-button",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"attributes": {
+		"buttonAlignment": {
+			"type": "string",
+			"default": "normal"
+		}
+	}
+}

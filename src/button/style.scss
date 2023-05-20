@@ -1,0 +1,28 @@
+@use "../styles/style.scss" as *;
+
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-create-block-ksk-button {
+	display: flex;
+	flex-direction: row;
+	gap: 2rem;
+
+	&-container {
+		&__left {
+			text-align: left;
+		}
+
+		&__center {
+			text-align: center;
+		}
+
+		&__right {
+			text-align: right;
+		}
+	}
+}
